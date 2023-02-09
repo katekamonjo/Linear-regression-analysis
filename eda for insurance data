@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "language_info": {
+      "name": ""
+    },
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    }
+  },
+  "nbformat_minor": 4,
+  "nbformat": 4,
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": "import pandas as pd\nimport numpy as np\nimport pandas_profiling as pdp\nimport matplotlib.pyplot as plt\nimport seaborn as sns\ndata=pd.read_csv('data/insurance.csv')\ndata.head()\n   Age     Sex     bmi     children     smoker     region     charges     \\\n0   19    female   27.9     0            yes       southwest   16884.92\n1   18     male    33.77    1            no        southeast   1725.5523\n2   28     male    33       3            no        southeast   4449.462\n3   33     male    22.705   0            no        northwest   21984.47061\n4   32     male    28.88    0            no        northwest   3866.8552\n5   31    female   25.74    0            no        southeast   3756.322\n6   46    female   33.44    1            no        southeast   8240.5896\n7   37    female   27.74    1            no        northwest   7281.5056\n8   37     male    29.83    3            no        northeast   6406.4107\n9   60    female   25.84    2            no        northwest   28923.13692\n10  25     male    26.62    0            no        northeast   2721.321\n\ndata.info()\n\nfrom sklearn.preprocessing import LabelEncoder\n\nobj_data=list(data.select_dtypes(include=['object']).columns)\nle=LabelEncoder()\ndata[obj_data]=le.fit_transform(data[obj_data])\n",
+      "metadata": {
+        "trusted": true
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
