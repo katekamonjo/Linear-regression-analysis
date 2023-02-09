@@ -1,0 +1,23 @@
+{
+  "metadata": {
+    "language_info": {
+      "name": ""
+    },
+    "kernelspec": {
+      "name": "python",
+      "display_name": "Python (Pyodide)",
+      "language": "python"
+    }
+  },
+  "nbformat_minor": 4,
+  "nbformat": 4,
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": "import numpy as np\nimport matplotlib.pyplot as plt\nimport pandas as pd\nfrom scipy.stats import norm, skew\nfrom scipy import stats\nimport statsmodels.api as sm\n\nfrom sklearn.impute import SimpleImputer\nfrom sklearn.preprocessing import LabelEncoder, OneHotEncoder\nfrom sklearn.compose import ColumnTransformer\nfrom sklearn.preprocessing import OneHotEncoder\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.preprocessing import StandardScaler\n\nfrom sklearn import svm, tree, linear_model, neighbors\nfrom sklearn import naive_bayes, ensemble, discriminant_analysis, gaussian_process\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.discriminant_analysis import LinearDiscriminantAnalysis\nfrom xgboost import XGBClassifier\nfrom sklearn.linear_model import LogisticRegression\nfrom sklearn.svm import SVC\nfrom sklearn.neighbors import KNeighborsClassifier\nfrom sklearn.naive_bayes import GaussianNB\nfrom sklearn.tree import DecisionTreeClassifier\nfrom sklearn.ensemble import RandomForestClassifier\n\nfrom sklearn.metrics import confusion_matrix, accuracy_score \nfrom sklearn.metrics import f1_score, precision_score, recall_score, fbeta_score\nfrom statsmodels.stats.outliers_influence import variance_inflation_factor\nfrom sklearn.model_selection import cross_val_score\nfrom sklearn.model_selection import GridSearchCV\nfrom sklearn.model_selection import ShuffleSplit\nfrom sklearn.model_selection import KFold\nfrom sklearn import feature_selection\nfrom sklearn import model_selection\nfrom sklearn import metrics\nfrom sklearn.metrics import classification_report, precision_recall_curve\nfrom sklearn.metrics import auc, roc_auc_score, roc_curve\nfrom sklearn.metrics import make_scorer, recall_score, log_loss\nfrom sklearn.metrics import average_precision_score\n\nimport seaborn as sn\nfrom matplotlib import pyplot\nimport matplotlib.pyplot as plt\nimport matplotlib.pylab as pylab\nimport matplotlib \n%matplotlib inline\ncolor = sn.color_palette()\nimport matplotlib.ticker as mtick\nfrom IPython.display import display\npd.options.display.max_columns = None\nfrom pandas.plotting import scatter_matrix\nfrom sklearn.metrics import roc_curve\n\nimport random\nimport os\nimport re\nimport sys\nimport timeit\nimport string\nimport time\nfrom datetime import datetime\nfrom time import time\nfrom dateutil.parser import parse\nimport joblib\n\nos.chdir(r”C:/Users/srees/Propensity Scoring Models/Predict Customer Churn/”)\n\ndataset = pd.read_csv('churn_modelling.csv')\n\ndataset.head()\ndataset.columns\nIndex(['rownumber','customer','surname','creditscore','geography','gender','age','tenure','balance','numofproducts','hascrcard','isactivemember',\n'estimated salary','exited'],dtype='object')\ndataset.describe()\ndataset.dtypes\ndataset.info()\ndataset[\"Churn\"].value_counts()\n\nle = LabelEncoder()\nle_count = 0\nfor col in dataset.columns[1:]:\n    if dataset[col].dtype == 'object':\n        if len(list(dataset[col].unique())) <= 2:\n            le.fit(dataset[col])\n            dataset[col] = le.transform(dataset[col])\n            le_count += 1\nprint('{} columns were label encoded.'.format(le_count))\n\n\n",
+      "metadata": {},
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
